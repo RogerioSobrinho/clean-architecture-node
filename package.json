@@ -1,8 +1,10 @@
 {
   "name": "clean-architecture-nodejs",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "NodeJs Rest API using TDD, Clean Architecture and Typescript",
+  "author": "Rogerio Sobrinho",
+  "license": "ISC",
+  "repository": "",
   "scripts": {
     "start": "node dist/main/server.js",
     "build": "rimraf dist && tsc",
@@ -16,9 +18,6 @@
     "test:staged": "npm test -- --findRelatedTests",
     "test:ci": "npm test -- --coverage"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
   "devDependencies": {
     "@types/jest": "^25.2.1",
     "@types/node": "^13.11.0",
@@ -35,5 +34,8 @@
     "lint-staged": "^10.1.1",
     "ts-jest": "^25.3.1",
     "typescript": "^3.8.3"
+  },
+  "engines": {
+    "node": "12.x"
   }
 }
