@@ -1,5 +1,7 @@
+import { HttpRequest, HttpResponse } from '../protocols/http';
+
 export class SignUpController {
-  handle (httpResquest: any): any {
+  handle (httpResquest: HttpRequest): HttpResponse {
     const paramRequired = ['name', 'email', 'password', 'passwordConfirmation'];
     for (const param of paramRequired) {
       if (!httpResquest.body[param]) {
