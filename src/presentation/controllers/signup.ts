@@ -1,23 +1,13 @@
 export class SignUpController {
   handle (httpResquest: any): any {
-    if (!httpResquest.body.email) {
-      return {
-        statusCode: 400,
-        body: new Error('Missing param: email')
-      };
-    }
-    if (!httpResquest.body.name) {
-      return {
-        statusCode: 400,
-        body: new Error('Missing param: name')
-      };
-    }
-
-    if (!httpResquest.body.password) {
-      return {
-        statusCode: 400,
-        body: new Error('Missing param: password')
-      };
+    const paramRequired = ['name', 'email', 'password', 'passwordConfirmation'];
+    for (const param of paramRequired) {
+      if (!httpResquest.body[param]) {
+        return {
+          statusCode: 400,
+          body: new Error(`Missing param: ${param}`)
+        };
+      }
     }
   }
 };
