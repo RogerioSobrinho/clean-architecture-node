@@ -91,4 +91,19 @@ describe('SignUp Controller', () => {
     expect(httpResponse.statusCode).toBe(400);
     expect(httpResponse.body).toEqual(new InvalidParam('email'));
   });
+
+  it('should return 400 if invalid password confirmation is provider', () => {
+    const { sut } = makeSut();
+    const httpResquest = {
+      body: {
+        name: 'any_name',
+        email: 'invalid_email@email.com',
+        password: 'any_password',
+        passwordConfirmation: 'any_password'
+      }
+    };
+    const httpResponse = sut.handle(httpResquest);
+    expect(httpResponse.statusCode).toBe(400);
+    expect(httpResponse.body).toEqual(new InvalidParam('passwordConfirmation'));
+  });
 });
